@@ -24,23 +24,23 @@ const Navbar = () => {
     }
 
     const links = <>
-        <ul className={`lg:flex flex-row gap-2 duration-300 top-16 md:top-[60px] absolute ${darkMode ? 'bg-gray-800' : 'bg-slate-100'} lg:static ${open ? 'left-0' : '-left-60'} p-10 lg:p-0 shadow-lg lg:shadow-none no-underline lg:gap-6 text-base lg:text-lg z-50 font-bold`}>
-            <li className="pb-1 lg:pb-0"><NavLink className={'focus:border-b-2 '} to='/'>Home</NavLink></li>
+        <ul className={`xl:flex flex-row gap-2 duration-300 top-16 md:top-[65px] absolute ${darkMode ? 'bg-gray-800' : 'bg-slate-100'} xl:static ${open ? 'left-0' : '-left-80'} p-10 xl:p-0 shadow-lg xl:shadow-none no-underline xl:gap-6 text-base lg:text-lg z-50 font-bold`}>
+            <li className="pb-1 xl:pb-0"><NavLink className={'focus:border-b-2 '} to='/'>হোম</NavLink></li>
             {
                 user ?
-                    <li className="pb-1 lg:pb-0"><NavLink className={'focus:border-b-2'} to='/all-books'>All Books</NavLink></li>
+                    <li className="pb-1 xl:pb-0"><NavLink className={'focus:border-b-2'} to='/donor-register'>ডোনার রেজিস্ট্রেশন</NavLink></li>
                     :
                     ""
             }
             {
                 user ?
-                    <li className="pb-1 lg:pb-0"><NavLink className={'focus:border-b-2'} to='/add-book'>Add Book</NavLink></li>
+                    <li className="pb-1 xl:pb-0"><NavLink className={'focus:border-b-2'} to='/add-book'>Add Book</NavLink></li>
                     :
                     ""
             }
             {
                 user ?
-                    <li className="pb-1 lg:pb-0"><NavLink className={' focus:border-b-2'} to='/borrowed'>Borrowed Books</NavLink></li>
+                    <li className="pb-1 xl:pb-0"><NavLink className={' focus:border-b-2'} to='/borrowed'>Borrowed Books</NavLink></li>
                     :
                     ""
             }
@@ -66,21 +66,21 @@ const Navbar = () => {
 
 
     return (
-        <nav className="flex items-center px-2 lg:px-4 py-2 lg:py-4 justify-between m-auto text-xl font-medium ">
-            <div className="flex items-center lg:hidden">
-                <div className="lg:hidden" onClick={() => setOpen(!open)}>
+        <nav className="flex items-center px-2 xl:px-4 py-2 xl:py-4 justify-between m-auto text-xl font-medium ">
+            <div className="flex items-center xl:hidden">
+                <div className="xl:hidden" onClick={() => setOpen(!open)}>
                     {
                         open == true ? <IoMdClose className="text-2xl " /> : <RiMenu2Line className="text-2xl " />
                     }
                 </div>
 
-                <div className="logo flex gap-2 text-base lg:hidden items-center">
+                <div className="logo ml-2 flex gap-2 text-base xl:hidden items-center">
                     <img src={logo} alt="" className="w-[44px] pl-2" />
-                    <h2 className="text-xl font-extrabold text-red-700">ব্লাড বন্ধু</h2>
+                    <h2 className="text-xl lg:text-2xl font-extrabold text-red-700">ব্লাড বন্ধু</h2>
                 </div>
             </div>
 
-            <div className="logo hidden gap-2 lg:flex items-center ">
+            <div className="logo ml-2 hidden gap-2 xl:flex items-center ">
                 <img src={logo} alt="" className="w-12" />
                 <h2 className="text-3xl lg:text-4xl font-extrabold text-red-700">ব্লাড বন্ধু</h2>
             </div>
@@ -133,7 +133,7 @@ const Navbar = () => {
                                 ""
                                 :
                                 <button className="btn btn-active btn-ghost rounded-md text-sm lg:text-base">
-                                    <Link to='/login'>Login</Link>
+                                    <Link to='/login'>লগইন</Link>
                                 </button>
                         }
                     </div >
@@ -143,7 +143,7 @@ const Navbar = () => {
                             user ?
                                 ""
                                 :
-                                <button className=" btn btn-active btn-ghost rounded-md text-sm lg:text-base" ><Link to='/register'>Register</Link></button>
+                                <button className=" btn btn-active btn-ghost rounded-md text-sm lg:text-base" ><Link to='/register'>রেজিস্টার</Link></button>
                         }
                     </div>
                 </div>

@@ -11,7 +11,6 @@ const AuthProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(false)
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [books, setBooks] = useState([])
     const GoogleProvider = new GoogleAuthProvider()
 
     const createUser = (email, password) => {
@@ -31,7 +30,6 @@ const AuthProvider = ({ children }) => {
 
     const handleGoogleSignIn = () => {
         return signInWithPopup(auth, GoogleProvider)
-
     }
 
     useEffect(() => {
@@ -48,13 +46,8 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    useEffect(() => {
-        fetch(`${BASE_URL}/books`)
-            .then(res => res.json())
-            .then(data => setBooks(data))
-    }, [])
 
-    const userInfo = { books, setBooks, loading, user, darkMode, setDarkMode, logOut, signIn, handleGoogleSignIn, createUser }
+    const userInfo = { loading, user, darkMode, setDarkMode, logOut, signIn, handleGoogleSignIn, createUser }
     return (
         <AuthContext.Provider value={userInfo}>
             {children}

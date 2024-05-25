@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Navbar from "../../component/navbar/Navbar";
+import Footer from "../../component/footer/Footer";
 
 const Root = () => {
     const { darkMode } = useContext(AuthContext)
@@ -12,6 +13,7 @@ const Root = () => {
                 <Navbar></Navbar>
                 <Outlet></Outlet>
                 <ToastContainer></ToastContainer>
+                <Footer></Footer>
             </div >
         </div>
 
