@@ -47,14 +47,15 @@ const Register = () => {
                 updateProfile(result.user, {
                     displayName: name, photoURL: photo
                 })
-                fetch(`${BASE_URL}/user`, {
-                    method: 'post',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify({ name, email, photo })
-                })
                     .then(result => {
+                        console.log({ displayName: name, email: email, photoURL: photo })
+                        fetch(`${BASE_URL}/user`, {
+                            method: 'post',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify({ displayName: name, email: email, photoURL: photo })
+                        })
                         Swal.fire({
                             title: 'Success!',
                             text: 'User Added Successfully!',

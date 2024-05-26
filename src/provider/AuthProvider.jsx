@@ -38,6 +38,26 @@ const AuthProvider = ({ children }) => {
             console.log('userEmail', { userEmail })
             const loggedUser = { email: userEmail }
             setUser(currentUser);
+
+
+            if (currentUser) {
+                const { email, displayName, photoURL } = currentUser
+
+                const sendInfo = {
+                    email: email,
+                    displayName: displayName,
+                    photoURL: photoURL
+                }
+                console.log(sendInfo)
+                fetch(`${BASE_URL}/user`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(sendInfo)
+                })
+            }
+
             console.log('current user', currentUser);
             setLoading(false);
         });

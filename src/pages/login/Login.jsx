@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import google from '../../../public/google.png'
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../provider/AuthProvider";
+import { BASE_URL } from "../../constVariables/constVariable";
 
 const Login = () => {
     const { signIn, handleGoogleSignIn, handleGitHubSignIn } = useContext(AuthContext)
