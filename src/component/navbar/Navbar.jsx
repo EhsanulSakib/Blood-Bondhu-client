@@ -26,6 +26,13 @@ const Navbar = () => {
     const links = <>
         <ul className={`xl:flex flex-row gap-2 duration-300 top-16 md:top-[65px] absolute ${darkMode ? 'bg-gray-800' : 'bg-slate-100'} xl:static ${open ? 'left-0' : '-left-80'} p-10 xl:p-0 shadow-lg xl:shadow-none no-underline xl:gap-6 text-base lg:text-lg z-50 font-bold`}>
             <li className="pb-1 xl:pb-0"><NavLink className={'focus:border-b-2 '} to='/'>হোম</NavLink></li>
+
+            {
+                user ?
+                    <li className="pb-1 xl:pb-0"><NavLink className={'focus:border-b-2'} to='/do-post'>পোস্ট করুন</NavLink></li>
+                    :
+                    ""
+            }
             {
                 user ?
                     <li className="pb-1 xl:pb-0"><NavLink className={'focus:border-b-2'} to='/donor-register'>ডোনার রেজিস্ট্রেশন</NavLink></li>
@@ -34,13 +41,7 @@ const Navbar = () => {
             }
             {
                 user ?
-                    <li className="pb-1 xl:pb-0"><NavLink className={'focus:border-b-2'} to='/post'>পোস্ট</NavLink></li>
-                    :
-                    ""
-            }
-            {
-                user ?
-                    <li className="pb-1 xl:pb-0"><NavLink className={' focus:border-b-2'} to='/borrowed'>Borrowed Books</NavLink></li>
+                    <li className="pb-1 xl:pb-0"><NavLink className={' focus:border-b-2'} to='/donor-list'>ডোনারদের তালিকা</NavLink></li>
                     :
                     ""
             }

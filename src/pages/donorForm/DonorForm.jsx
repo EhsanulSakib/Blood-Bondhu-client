@@ -23,28 +23,26 @@ const DonorForm = () => {
         const address = form.address.value
         const lastDonate = form.lastDonate.value
 
-        const newBooks = { donorName, phone, email, bloodGroup, gender, DOB, address, lastDonate }
-        console.log(newBooks)
+        const donorInfo = { donorName, phone, email, bloodGroup, gender, DOB, address, lastDonate }
+        console.log(donorInfo)
         fetch(`${BASE_URL}/donor`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newBooks)
+            body: JSON.stringify(donorInfo)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: 'অভিনন্দন',
-                        text: 'আপনার রেজিস্ট্রেশন সফল হয়েছে!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    }).then(() => {
-                        navigate('/')
-                    })
-                }
+                console.log(data.insertedId)
+                Swal.fire({
+                    title: 'অভিনন্দন',
+                    text: 'আপনার রেজিস্ট্রেশন সফল হয়েছে!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                }).then(() => {
+                    navigate('/')
+                })
             })
     }
 
@@ -110,8 +108,17 @@ const DonorForm = () => {
 
 
                 <div className='text-base lg:text-xl'>
-                    <h2 className="mb-2 font-bold text-lg">বর্তমান ঠিকানা:</h2>
-                    <input required type="text" placeholder="বর্তমান ঠিকানা দিন" className={`input rounded-none input-bordered w-full border-4 bg-inherit`} name="address" />
+                    <h2 className="mb-2 font-bold">ঠিকানা:</h2>
+                    <select required className={`input rounded-md input-bordered ${darkMode ? ' bg-gray-800' : ' bg-slate-100'} w-full cursor-pointer border-4`} name="address">
+                        <option value="খিলগাঁও, ঢাকা" className='text-xl'>খিলগাঁও, ঢাকা</option>
+                        <option value="মালিবাগ, ঢাকা" className='text-xl'>মালিবাগ, ঢাকা</option>
+                        <option value="মিরপুর, ঢাকা" className='text-xl'>মিরপুর, ঢাকা</option>
+                        <option value="উত্তরা, ঢাকা" className='text-xl'>উত্তরা, ঢাকা</option>
+                        <option value="গুলশান, ঢাকা" className='text-xl'>গুলশান, ঢাকা</option>
+                        <option value="মতিঝিল, ঢাকা" className='text-xl'>মতিঝিল, ঢাকা</option>
+                        <option value="বনশ্রী, ঢাকা" className='text-xl'>বনশ্রী, ঢাকা</option>
+                        <option value="ডেমরা, ঢাকা" className='text-xl'>ডেমরা, ঢাকা</option>
+                    </select>
                 </div>
 
                 <input type="submit" value="রেজিস্টার করুন" className="btn-lg rounded-md text-lg bg-red-400 border-none cursor-pointer font-bold text-white col-span-2 py-2 w-full" />

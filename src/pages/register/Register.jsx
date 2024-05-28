@@ -48,13 +48,13 @@ const Register = () => {
                     displayName: name, photoURL: photo
                 })
                     .then(result => {
-                        console.log({ displayName: name, email: email, photoURL: photo })
+                        console.log({ displayName: name, email: email, photoURL: photo, role: 'user' })
                         fetch(`${BASE_URL}/user`, {
                             method: 'post',
                             headers: {
                                 'content-type': 'application/json'
                             },
-                            body: JSON.stringify({ displayName: name, email: email, photoURL: photo })
+                            body: JSON.stringify({ displayName: name, email: email, photoURL: photo, role: 'user' })
                         })
                         Swal.fire({
                             title: 'Success!',

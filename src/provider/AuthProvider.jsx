@@ -39,25 +39,6 @@ const AuthProvider = ({ children }) => {
             const loggedUser = { email: userEmail }
             setUser(currentUser);
 
-
-            if (currentUser) {
-                const { email, displayName, photoURL } = currentUser
-
-                const sendInfo = {
-                    email: email,
-                    displayName: displayName,
-                    photoURL: photoURL
-                }
-                console.log(sendInfo)
-                fetch(`${BASE_URL}/user`, {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(sendInfo)
-                })
-            }
-
             console.log('current user', currentUser);
             setLoading(false);
         });
@@ -67,7 +48,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const userInfo = { loading, user, darkMode, setDarkMode, logOut, signIn, handleGoogleSignIn, createUser }
+    const userInfo = { loading, setLoading, user, darkMode, setDarkMode, logOut, signIn, handleGoogleSignIn, createUser }
     return (
         <AuthContext.Provider value={userInfo}>
             {children}

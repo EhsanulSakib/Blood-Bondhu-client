@@ -35,7 +35,22 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         handleGoogleSignIn()
-            .then(() => {
+            .then(result => {
+                console.log(result.user)
+                const userInfo = {
+                    email: result.user?.email,
+                    displayName: result.user?.displayName,
+                    photoURL: result.user?.photoURL,
+                    role: 'user'
+                }
+                fetch(`${BASE_URL}/donor`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+
                 navigate(location?.state ? location.state : '/')
                 notify()
             })

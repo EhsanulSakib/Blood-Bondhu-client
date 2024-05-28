@@ -8,6 +8,7 @@ import DonorForm from "../pages/donorForm/DonorForm";
 import { BASE_URL } from "../constVariables/constVariable";
 import PrivateRouter from "./PrivateRouter";
 import Post from "../pages/post/Post";
+import DonorList from "../pages/donorList/DonorList";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -23,8 +24,12 @@ const router = createBrowserRouter([
                 element: <PrivateRouter><DonorForm></DonorForm></PrivateRouter>
             },
             {
-                path: '/post',
+                path: '/do-post',
                 element: <PrivateRouter><Post></Post></PrivateRouter>
+            },
+            {
+                path: '/donor-list',
+                element: <PrivateRouter><DonorList></DonorList></PrivateRouter>
             },
             {
                 path: '/login',
@@ -35,6 +40,9 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             }
         ]
+    },
+    {
+        path: '/dashboard'
     }
 ])
 
